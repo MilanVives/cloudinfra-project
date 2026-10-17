@@ -19,7 +19,7 @@ tag="submit/$(date -u +%Y-%m-%dT%H-%M-%SZ)"
 git tag "$tag"
 git push origin "$tag"
 
-url="$(git remote get-url origin | sed -E 's#^git@github\.com:#https://github.com/#; s#\.git$##')"
+url="$(git remote get-url origin | sed -E 's#^git@github\.com:#https://github.com/#; s#://[^/@]+@#://#; s#\.git$##')"
 echo
 echo "Ingediend als $tag."
 echo "Je resultaat verschijnt binnen enkele minuten onder Releases: $url/releases"
